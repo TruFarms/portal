@@ -7,8 +7,8 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { useFormState, useFormStatus } from 'react-dom';
-import { useEffect } from 'react';
+import { useActionState, useEffect } from 'react';
+import { useFormStatus } from 'react-dom';
 import { useToast } from '@/hooks/use-toast';
 
 // Placeholder server action for form submission
@@ -40,7 +40,7 @@ function SubmitContactButton() {
 
 
 export default function ContactSection() {
-  const [state, formAction] = useFormState(submitContactForm, { success: null, message: '' });
+  const [state, formAction] = useActionState(submitContactForm, { success: null, message: '' });
   const { toast } = useToast();
 
   useEffect(() => {
