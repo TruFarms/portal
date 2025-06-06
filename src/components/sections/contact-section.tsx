@@ -1,31 +1,51 @@
 
 "use client";
 
+import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import { useActionState, useEffect } from 'react';
 import { useFormStatus } from 'react-dom';
 import { useToast } from '@/hooks/use-toast';
 
-// Placeholder server action for form submission
-async function submitContactForm(prevState: any, formData: FormData) {
-  // Simulate API call
+interface ContactFormState {
+  success: boolean | null;
+  message: string;
+  fieldErrors?: { name?: string; email?: string; message?: string };
+  timestamp?: number;
+}
+
+async function submitContactForm(prevState: ContactFormState, formData: FormData): Promise<ContactFormState> {
   await new Promise(resolve => setTimeout(resolve, 1000));
   
-  const name = formData.get('name');
-  const email = formData.get('email');
-  const message = formData.get('message');
+  const name = formData.get('name') as string | null;
+  const email = formData.get('email') as string | null;
+  const message = formData.get('message') as string | null;
 
-  if (!name || !email || !message) {
-    return { success: false, message: "Please fill all required fields.", fieldErrors: { name: !name, email: !email, message: !message} };
+  const errors: { name?: string; email?: string; message?: string } = {};
+  if (!name) errors.name = 'Name is required.';
+  if (!email) errors.email = 'Email is required.';
+  else if (!/\S+@\S+\.\S+/.test(email)) errors.email = 'Email is invalid.';
+  if (!message) errors.message = 'Message is required.';
+
+  if (Object.keys(errors).length > 0) {
+    return { 
+      success: false, 
+      message: "Please fill all required fields correctly.", 
+      fieldErrors: errors,
+      timestamp: Date.now() 
+    };
   }
-  // Here you would typically send the data to your backend
+  
   console.log({ name, email, message });
-  return { success: true, message: "Thank you for your message! We'll be in touch soon." };
+  return { 
+    success: true, 
+    message: "Thank you for your message! We'll be in touch soon.",
+    timestamp: Date.now()
+  };
 }
 
 function SubmitContactButton() {
@@ -38,20 +58,28 @@ function SubmitContactButton() {
   );
 }
 
+const initialStableContactFormState: ContactFormState = { 
+  success: null, 
+  message: '', 
+  fieldErrors: undefined, 
+  timestamp: 0 
+};
 
 export default function ContactSection() {
-  const [state, formAction] = useActionState(submitContactForm, { success: null, message: '' });
+  const [state, formAction] = React.useActionState(submitContactForm, initialStableContactFormState);
   const { toast } = useToast();
+  const prevTimestampRef = useRef(state.timestamp);
 
   useEffect(() => {
-    if (state.message) {
+    if (state.timestamp !== prevTimestampRef.current && state.timestamp !== 0 && state.message) {
       toast({
         title: state.success ? 'Message Sent!' : 'Error',
         description: state.message,
         variant: state.success ? 'default' : 'destructive',
       });
     }
-  }, [state, toast]);
+    prevTimestampRef.current = state.timestamp;
+  }, [state.message, state.success, state.fieldErrors, state.timestamp, toast]);
 
 
   return (
@@ -75,10 +103,12 @@ export default function ContactSection() {
                 <div>
                   <Label htmlFor="name">Full Name</Label>
                   <Input id="name" name="name" type="text" placeholder="Your Name" required className={state.fieldErrors?.name ? 'border-destructive' : ''} />
+                  {state.fieldErrors?.name && <p className="text-sm text-destructive mt-1">{state.fieldErrors.name}</p>}
                 </div>
                 <div>
                   <Label htmlFor="email">Email Address</Label>
                   <Input id="email" name="email" type="email" placeholder="your@email.com" required className={state.fieldErrors?.email ? 'border-destructive' : ''} />
+                  {state.fieldErrors?.email && <p className="text-sm text-destructive mt-1">{state.fieldErrors.email}</p>}
                 </div>
                 <div>
                   <Label htmlFor="company">Company (Optional)</Label>
@@ -87,6 +117,7 @@ export default function ContactSection() {
                 <div>
                   <Label htmlFor="message">Message</Label>
                   <Textarea id="message" name="message" placeholder="Your message..." rows={5} required className={state.fieldErrors?.message ? 'border-destructive' : ''} />
+                  {state.fieldErrors?.message && <p className="text-sm text-destructive mt-1">{state.fieldErrors.message}</p>}
                 </div>
                 <div>
                   <SubmitContactButton />

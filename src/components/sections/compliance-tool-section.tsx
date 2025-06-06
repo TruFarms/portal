@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useActionState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useFormStatus } from 'react-dom';
 import { analyzeComplianceAction, type ComplianceFormState } from '@/app/actions/analyze-compliance';
 import { Button } from '@/components/ui/button';
@@ -23,20 +23,29 @@ function SubmitButton() {
   );
 }
 
+const initialStableComplianceFormState: ComplianceFormState = { 
+  message: '', 
+  isError: false, 
+  report: undefined, 
+  fieldErrors: undefined, 
+  timestamp: 0 
+};
+
 export default function ComplianceToolSection() {
-  const initialState: ComplianceFormState = { message: '', timestamp: Date.now() };
-  const [state, formAction] = useActionState(analyzeComplianceAction, initialState);
+  const [state, formAction] = React.useActionState(analyzeComplianceAction, initialStableComplianceFormState);
   const { toast } = useToast();
+  const prevTimestampRef = useRef(state.timestamp);
 
   useEffect(() => {
-    if (state.message && state.timestamp !== initialState.timestamp) { // only show toast for new messages
+    if (state.timestamp !== prevTimestampRef.current && state.timestamp !== 0 && state.message) {
       toast({
         title: state.isError ? 'Analysis Error' : 'Analysis Status',
         description: state.message,
         variant: state.isError ? 'destructive' : 'default',
       });
     }
-  }, [state, toast, initialState.timestamp]);
+    prevTimestampRef.current = state.timestamp;
+  }, [state.message, state.isError, state.report, state.timestamp, toast]);
 
 
   return (
@@ -81,7 +90,7 @@ export default function ComplianceToolSection() {
           </form>
         </Card>
 
-        {state.timestamp !== initialState.timestamp && state.report && !state.isError && (
+        {state.timestamp !== 0 && state.report && !state.isError && (
           <Card className="max-w-3xl mx-auto mt-8 shadow-xl">
             <CardHeader>
               <CardTitle className="flex items-center text-2xl font-headline">
@@ -96,7 +105,7 @@ export default function ComplianceToolSection() {
             </CardContent>
           </Card>
         )}
-         {state.timestamp !== initialState.timestamp && state.isError && state.message && !state.fieldErrors && (
+         {state.timestamp !== 0 && state.isError && state.message && !state.fieldErrors && (
           <Card className="max-w-3xl mx-auto mt-8 shadow-xl">
             <CardHeader>
               <CardTitle className="flex items-center text-2xl font-headline">
