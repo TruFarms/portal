@@ -1,7 +1,8 @@
 
 "use client";
 
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState, useEffect } from 'react';
+import { useFormStatus } from 'react-dom';
 import { analyzeComplianceAction, type ComplianceFormState } from '@/app/actions/analyze-compliance';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -9,7 +10,6 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Loader2, CheckCircle, AlertTriangle, Info } from 'lucide-react';
-import { useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 
 
@@ -25,7 +25,7 @@ function SubmitButton() {
 
 export default function ComplianceToolSection() {
   const initialState: ComplianceFormState = { message: '', timestamp: Date.now() };
-  const [state, formAction] = useFormState(analyzeComplianceAction, initialState);
+  const [state, formAction] = useActionState(analyzeComplianceAction, initialState);
   const { toast } = useToast();
 
   useEffect(() => {
