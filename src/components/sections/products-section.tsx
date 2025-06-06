@@ -1,0 +1,68 @@
+
+import Image from 'next/image';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Droplets, Pill, Leaf } from 'lucide-react'; // Using Leaf as a stand-in for gummies/edibles
+
+const products = [
+  {
+    name: 'Vape Cartridges',
+    description: 'Premium vape cartridges formulated for purity and potency, available in various strains and cannabinoid profiles.',
+    icon: Droplets,
+    imageSrc: 'https://placehold.co/400x300.png',
+    imageHint: 'vape cartridge'
+  },
+  {
+    name: 'Gummies & Edibles',
+    description: 'Delicious and precisely dosed gummies and other edibles, crafted with high-quality extracts for consistent effects.',
+    icon: Leaf,
+    imageSrc: 'https://placehold.co/400x300.png',
+    imageHint: 'cannabis gummies'
+  },
+  {
+    name: 'Capsules & Tinctures',
+    description: 'Discreet and convenient capsules and tinctures, offering controlled dosing and reliable cannabinoid delivery.',
+    icon: Pill,
+    imageSrc: 'https://placehold.co/400x300.png',
+    imageHint: 'cannabis capsules'
+  },
+];
+
+export default function ProductsSection() {
+  return (
+    <section id="products" className="py-16 lg:py-24 bg-secondary">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-headline">Our Core Products</h2>
+          <p className="text-lg text-foreground max-w-2xl mx-auto">
+            We manufacture a range of high-quality cannabis products, customizable to meet your brand's specific needs.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product) => (
+            <Card key={product.name} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <CardHeader className="p-0">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src={product.imageSrc}
+                    alt={product.name}
+                    data-ai-hint={product.imageHint}
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+              </CardHeader>
+              <CardContent className="p-6 flex-grow flex flex-col">
+                <div className="flex items-center mb-3">
+                  <product.icon className="h-8 w-8 text-primary mr-3 shrink-0" />
+                  <CardTitle className="text-2xl font-headline">{product.name}</CardTitle>
+                </div>
+                <CardDescription className="text-foreground flex-grow">{product.description}</CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
