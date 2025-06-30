@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import { BadgeCheck, Star } from 'lucide-react'; // BadgeCheck for compliance, Star for testimonials
 import Image from 'next/image';
@@ -17,9 +16,9 @@ const testimonials = [
 ];
 
 const partners = [
-  { name: "Lab Partner A", logoSrc: "https://placehold.co/150x60.png?text=Lab+Partner+A", imageHint: "lab partner" },
-  { name: "Lab Partner B", logoSrc: "https://placehold.co/150x60.png?text=Lab+Partner+B", imageHint: "lab partner" },
-  { name: "MN OCM Compliant", logoSrc: "https://placehold.co/150x60.png?text=MN+OCM+Compliant", imageHint: "compliance badge" },
+  { name: "Lab Partner A", logoSrc: "https://placehold.co/150x60.png", imageHint: "lab partner" },
+  { name: "Lab Partner B", logoSrc: "https://placehold.co/150x60.png", imageHint: "lab partner" },
+  { name: "MN OCM Compliant", logoSrc: "https://placehold.co/150x60.png", imageHint: "compliance badge" },
 ];
 
 export default function TestimonialsSection() {
