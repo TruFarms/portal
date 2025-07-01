@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import TruFarmsLogo from '@/components/trufarms-logo';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
@@ -61,14 +61,16 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
-                <div className="flex justify-between items-center mb-8">
-                   <Link href="/#home" aria-label="TruFarms Home" onClick={() => setMobileMenuOpen(false)}>
-                     <TruFarmsLogo className="h-8" />
-                   </Link>
+                <SheetHeader className="flex-row justify-between items-center space-y-0 mb-8">
+                  <SheetTitle asChild>
+                    <Link href="/#home" aria-label="TruFarms Home" onClick={() => setMobileMenuOpen(false)}>
+                      <TruFarmsLogo className="h-8" />
+                    </Link>
+                  </SheetTitle>
                   <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
                     <X className="h-6 w-6" />
                   </Button>
-                </div>
+                </SheetHeader>
                 <nav className="flex flex-col space-y-4">
                   {navItems.map((item) => (
                     <Link
