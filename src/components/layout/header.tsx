@@ -46,12 +46,12 @@ export default function Header() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+                className="text-sm font-medium text-foreground hover:text-primary transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
               >
                 {item.label}
               </Link>
             ))}
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="outline" size="sm" asChild className="hover:bg-primary/10">
               <Link href="/contact">Client Portal</Link>
             </Button>
           </nav>

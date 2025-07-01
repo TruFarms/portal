@@ -31,9 +31,9 @@ const workflowSteps = [
 
 export default function WorkflowSection() {
   return (
-    <section id="workflow" className="py-16 lg:py-24 bg-secondary">
+    <section id="workflow" className="py-16 lg:py-24 bg-secondary overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 opacity-0 animate-fade-in-up">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-headline">Our B2B Process</h2>
           <p className="text-lg text-foreground max-w-2xl mx-auto">
             We follow a streamlined and transparent process to bring your cannabis product vision to life, ensuring quality and compliance every step of the way.
@@ -41,8 +41,8 @@ export default function WorkflowSection() {
         </div>
         <div className="relative grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {workflowSteps.map((step, index) => (
-            <div key={step.step} className="relative flex flex-col">
-              <Card className="flex-grow flex flex-col text-center shadow-lg hover:shadow-xl transition-shadow duration-300 z-10">
+            <div key={step.step} className="relative flex flex-col opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 150 + 200}ms` }}>
+              <Card className="flex-grow flex flex-col text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 z-10">
                 <CardHeader>
                   <div className="mx-auto bg-primary/10 text-primary rounded-full p-3 w-fit mb-3">
                     <step.icon className="h-8 w-8" />

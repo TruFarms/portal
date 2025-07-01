@@ -30,9 +30,9 @@ const industriesServed = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-16 lg:py-24 bg-background">
+    <section id="services" className="py-16 lg:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 opacity-0 animate-fade-in-up">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-headline">B2B Manufacturing Services</h2>
           <p className="text-lg text-foreground max-w-3xl mx-auto">
             TruFarms offers a suite of specialized services to support cannabis businesses at every stage of product development and manufacturing.
@@ -40,22 +40,24 @@ export default function ServicesSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service) => (
-            <Card key={service.title} className="text-center shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CardHeader>
-                <div className="mx-auto bg-primary/10 text-primary rounded-full p-4 w-fit mb-4">
-                  <service.icon className="h-10 w-10" />
-                </div>
-                <CardTitle className="text-2xl font-headline">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-foreground">{service.description}</p>
-              </CardContent>
-            </Card>
+          {services.map((service, index) => (
+             <div key={service.title} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 150 + 200}ms` }}>
+              <Card className="text-center h-full shadow-lg hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                <CardHeader>
+                  <div className="mx-auto bg-primary/10 text-primary rounded-full p-4 w-fit mb-4">
+                    <service.icon className="h-10 w-10" />
+                  </div>
+                  <CardTitle className="text-2xl font-headline">{service.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-foreground">{service.description}</p>
+                </CardContent>
+              </Card>
+            </div>
           ))}
         </div>
 
-        <div className="text-center bg-secondary p-8 md:p-12 rounded-lg shadow-md">
+        <div className="text-center bg-secondary p-8 md:p-12 rounded-lg shadow-md opacity-0 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
           <h3 className="text-2xl lg:text-3xl font-bold text-primary mb-6 font-headline">Industries We Serve</h3>
           <ul className="space-y-3 max-w-xl mx-auto text-left mb-8 text-foreground">
             {industriesServed.map((industry, index) => (
@@ -65,7 +67,7 @@ export default function ServicesSection() {
               </li>
             ))}
           </ul>
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="transform hover:scale-105 transition-transform duration-300">
             <Link href="/contact">
               Discuss Your Project <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
