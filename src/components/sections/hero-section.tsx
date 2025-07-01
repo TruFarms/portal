@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -28,7 +27,7 @@ export default function HeroSection() {
           </div>
           <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl">
             <Image
-              src="/trufarmslanding.png"
+              src="/trufarmsproducts.png"
               alt="Professional laboratory or cannabis product"
               fill
               style={{ objectFit: 'cover' }}
