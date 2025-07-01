@@ -6,7 +6,6 @@ import AboutSection from '@/components/sections/about-section';
 import ProductsSection from '@/components/sections/products-section';
 import ServicesSection from '@/components/sections/services-section';
 import QualitySection from '@/components/sections/quality-section';
-import TestimonialsSection from '@/components/sections/testimonials-section';
 import WorkflowSection from '@/components/sections/workflow-section';
 
 export default function HomePage() {
@@ -19,7 +18,6 @@ export default function HomePage() {
         <ProductsSection />
         <ServicesSection />
         <QualitySection />
-        <TestimonialsSection />
         <AboutSection />
       </main>
       <Footer />
