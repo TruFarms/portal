@@ -15,12 +15,12 @@ export default function HomePage() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-        <AboutSection />
+        <WorkflowSection />
         <ProductsSection />
         <ServicesSection />
         <QualitySection />
         <TestimonialsSection />
-        <WorkflowSection />
+        <AboutSection />
       </main>
       <Footer />
     </div>
