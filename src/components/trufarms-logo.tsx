@@ -1,15 +1,12 @@
-import Image from 'next/image';
-import { cn } from '@/lib/utils';
+import type { ImgHTMLAttributes } from 'react';
 
-const TruFarmsLogo = ({ className }: { className?: string }) => (
-    <Image
-      src="/trufarms_trans.png"
-      alt="TruFarms Logo"
-      width={240} 
-      height={115}
-      className={cn("w-auto", className)}
-      priority
-    />
+const TruFarmsLogo = (props: ImgHTMLAttributes<HTMLImageElement>) => (
+<img
+  src="/trufarms_trans.png"
+  alt="TruFarms Logo"
+  className="w-[200px] h-auto" // Tailwind example
+/>
 );
 
 export default TruFarmsLogo;
+

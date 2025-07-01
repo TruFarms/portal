@@ -50,9 +50,6 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button variant="accent" size="sm" asChild>
-              <Link href="/contact">Client Portal</Link>
-            </Button>
           </nav>
 
           <div className="md:hidden">
@@ -82,9 +79,6 @@ export default function Header() {
                       {item.label}
                     </Link>
                   ))}
-                  <Button variant="accent" className="mt-4" asChild>
-                     <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Client Portal</Link>
-                  </Button>
                 </nav>
               </SheetContent>
             </Sheet>
