@@ -8,7 +8,6 @@ import ServicesSection from '@/components/sections/services-section';
 import QualitySection from '@/components/sections/quality-section';
 import TestimonialsSection from '@/components/sections/testimonials-section';
 import WorkflowSection from '@/components/sections/workflow-section';
-import BlogPlaceholderSection from '@/components/sections/blog-placeholder-section';
 
 export default function HomePage() {
   return (
@@ -22,7 +21,6 @@ export default function HomePage() {
         <QualitySection />
         <TestimonialsSection />
         <WorkflowSection />
-        <BlogPlaceholderSection />
       </main>
       <Footer />
     </div>
