@@ -13,7 +13,7 @@ body {
 
 @layer base {
   :root {
-    --background: 40 33% 97%; /* Very Light Cream/Off-white */
+    --background: 35 50% 95%; /* Light Tan */
     --foreground: 24 10% 25%; /* Dark Brown */
 
     --card: 0 0% 100%; /* White */
@@ -25,7 +25,7 @@ body {
     --primary: 150 45% 30%; /* Deep, muted green from logo */
     --primary-foreground: 40 33% 97%; /* Light cream */
 
-    --secondary: 35 50% 95%; /* Light Tan */
+    --secondary: 35 45% 90%; /* Slightly Darker Tan */
     --secondary-foreground: 24 10% 25%; /* Dark Brown */
 
     --muted: 35 45% 92%;
@@ -37,8 +37,8 @@ body {
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 35 25% 88%;
-    --input: 35 25% 92%;
+    --border: 35 25% 85%;
+    --input: 0 0% 100%;
     --ring: 28 75% 58%; /* Orange accent for rings */
 
     --chart-1: 12 76% 61%;
@@ -60,22 +60,22 @@ body {
 
   .dark {
     --background: 24 10% 15%; /* Very dark brown */
-    --foreground: 40 30% 90%; /* Light tan/cream */
+    --foreground: 35 30% 90%; /* Light tan/cream */
 
     --card: 24 10% 20%;
-    --card-foreground: 40 30% 90%;
+    --card-foreground: 35 30% 90%;
 
     --popover: 24 10% 15%;
-    --popover-foreground: 40 30% 90%;
+    --popover-foreground: 35 30% 90%;
 
     --primary: 150 40% 60%; /* Lighter, softer green */
     --primary-foreground: 150 45% 15%; /* Very dark green */
 
-    --secondary: 24 10% 25%;
-    --secondary-foreground: 40 30% 90%;
+    --secondary: 24 10% 22%; /* Darker shade of brown */
+    --secondary-foreground: 35 30% 90%;
 
     --muted: 24 10% 25%;
-    --muted-foreground: 40 30% 65%;
+    --muted-foreground: 35 30% 65%;
 
     --accent: 28 70% 65%; /* Lighter orange */
     --accent-foreground: 24 10% 15%; /* Dark brown */
@@ -84,7 +84,7 @@ body {
     --destructive-foreground: 0 0% 98%;
 
     --border: 24 10% 30%;
-    --input: 24 10% 30%;
+    --input: 24 10% 25%;
     --ring: 28 70% 65%; /* Lighter orange accent for ring */
 
     --chart-1: 220 70% 50%;

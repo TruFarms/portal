@@ -1,11 +1,25 @@
-import type { ImgHTMLAttributes } from 'react';
+import type { SVGProps } from 'react';
 
-const TruFarmsLogo = (props: ImgHTMLAttributes<HTMLImageElement>) => (
-<img
-  src="/trufarms_trans.png"
-  alt="TruFarms Logo"
-  className="w-[370px] h-auto" // Tailwind example
-/>
+const TruFarmsLogo = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    width="150"
+    height="40"
+    viewBox="0 0 150 40"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <text
+      x="10"
+      y="30"
+      fontFamily="'Space Grotesk', sans-serif"
+      fontSize="24"
+      fill="currentColor"
+      fontWeight="bold"
+    >
+      TruFarms
+    </text>
+  </svg>
 );
 
 export default TruFarmsLogo;

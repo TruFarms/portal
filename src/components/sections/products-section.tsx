@@ -39,13 +39,14 @@ export default function ProductsSection() {
             <div key={product.name} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 150 + 200}ms` }}>
               <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
                 <CardHeader className="p-0">
-                  <div className="relative aspect-[4/3]">
+                  <div className="relative aspect-[4/3] overflow-hidden">
                     <Image
                       src={product.imageSrc}
                       alt={product.name}
                       fill
                       style={{ objectFit: 'cover' }}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                 </CardHeader>

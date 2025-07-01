@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
             <Link href="/#home" aria-label="TruFarms Home" className="mb-4 inline-block">
-              <TruFarmsLogo className="h-10 w-auto" />
+              <TruFarmsLogo className="h-10 w-auto text-primary" />
             </Link>
             <p className="text-sm">
               Your trusted partner in B2B cannabis product manufacturing. Located in Rochester, MN.

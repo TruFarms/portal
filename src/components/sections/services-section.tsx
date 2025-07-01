@@ -67,7 +67,7 @@ export default function ServicesSection() {
               </li>
             ))}
           </ul>
-          <Button size="lg" asChild className="transform hover:scale-105 transition-transform duration-300">
+          <Button size="lg" asChild variant="accent" className="transform hover:scale-105 transition-transform duration-300">
             <Link href="/contact">
               Discuss Your Project <ArrowRight className="ml-2 h-5 w-5" />
             </Link>

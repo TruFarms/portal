@@ -22,7 +22,7 @@ const qualityAspects = [
 
 export default function QualitySection() {
   return (
-    <section id="quality" className="py-16 lg:py-24 bg-secondary overflow-hidden">
+    <section id="quality" className="py-16 lg:py-24 bg-background overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 opacity-0 animate-fade-in-up">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-headline">Commitment to Quality & Safety</h2>
