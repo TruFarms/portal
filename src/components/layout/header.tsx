@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -38,7 +37,7 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/#home" aria-label="TruFarms Home">
-            <TruFarmsLogo className="h-8 md:h-10 w-auto text-primary" />
+            <TruFarmsLogo className="h-8 md:h-10" />
           </Link>
 
           <nav className="hidden md:flex space-x-6 items-center">
@@ -51,7 +50,7 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button variant="outline" size="sm" asChild className="hover:bg-primary/10">
+            <Button variant="accent" size="sm" asChild>
               <Link href="/contact">Client Portal</Link>
             </Button>
           </nav>
@@ -66,7 +65,7 @@ export default function Header() {
               <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
                 <div className="flex justify-between items-center mb-8">
                    <Link href="/#home" aria-label="TruFarms Home" onClick={() => setMobileMenuOpen(false)}>
-                     <TruFarmsLogo className="h-8 w-auto text-primary" />
+                     <TruFarmsLogo className="h-8" />
                    </Link>
                   <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
                     <X className="h-6 w-6" />
@@ -83,7 +82,7 @@ export default function Header() {
                       {item.label}
                     </Link>
                   ))}
-                  <Button variant="outline" className="mt-4" asChild>
+                  <Button variant="accent" className="mt-4" asChild>
                      <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Client Portal</Link>
                   </Button>
                 </nav>

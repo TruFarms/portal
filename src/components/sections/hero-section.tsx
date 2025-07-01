@@ -12,7 +12,7 @@ export default function HeroSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="text-center md:text-left">
             <div className="mb-6 md:hidden flex justify-center opacity-0 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
-              <TruFarmsLogo className="h-12 w-auto text-primary" />
+              <TruFarmsLogo className="h-12" />
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary mb-6 font-headline opacity-0 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
               Elevating Cannabis Manufacturing Standards

@@ -1,25 +1,15 @@
-import type { SVGProps } from 'react';
+import Image from 'next/image';
+import { cn } from '@/lib/utils';
 
-const TruFarmsLogo = (props: SVGProps<SVGSVGElement>) => (
-  <svg
-    width="150"
-    height="40"
-    viewBox="0 0 150 40"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <text
-      x="10"
-      y="30"
-      fontFamily="'Space Grotesk', sans-serif"
-      fontSize="24"
-      fill="currentColor"
-      fontWeight="bold"
-    >
-      TruFarms
-    </text>
-  </svg>
+const TruFarmsLogo = ({ className }: { className?: string }) => (
+    <Image
+      src="/trufarms_trans.png"
+      alt="TruFarms Logo"
+      width={225} 
+      height={60}
+      className={cn("w-auto", className)}
+      priority
+    />
 );
 
 export default TruFarmsLogo;
