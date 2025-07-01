@@ -36,7 +36,7 @@ export default function AboutSection() {
               alt="TruFarms laboratory or team"
               fill
               style={{ objectFit: 'cover' }}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="transition-transform duration-500 hover:scale-105"
             />
           </div>
