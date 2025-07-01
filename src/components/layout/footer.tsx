@@ -7,14 +7,12 @@ export default function Footer() {
   return (
     <footer className="bg-secondary text-secondary-foreground py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+          <div className="flex justify-center md:justify-start">
             <Link href="/#home" aria-label="TruFarms Home" className="mb-4 inline-block">
-              <TruFarmsLogo className="h-10" />
+              <TruFarmsLogo className="h-12" />
             </Link>
-            <p className="text-sm">
-              Your trusted partner in B2B cannabis product manufacturing. Located in Rochester, MN.
-            </p>
+          
           </div>
 
           <div>
@@ -31,16 +29,16 @@ export default function Footer() {
             <h3 className="text-lg font-headline font-semibold mb-3">Contact Us</h3>
             <address className="not-italic text-sm space-y-2">
               <p>123 Lab Drive, Rochester, MN 55901</p>
-              <p className="flex items-center">
+              <p className="flex items-center justify-center md:justify-start">
                 <Mail className="h-4 w-4 mr-2 shrink-0" />
                 <a href="mailto:info@trufarms.com" className="hover:text-primary transition-colors">info@trufarms.com</a>
               </p>
-              <p className="flex items-center">
+              <p className="flex items-center justify-center md:justify-start">
                 <Phone className="h-4 w-4 mr-2 shrink-0" />
                 <a href="tel:+15075551234" className="hover:text-primary transition-colors">(507) 555-1234</a>
               </p>
             </address>
-            <div className="flex space-x-4 mt-4">
+            <div className="flex space-x-4 mt-4 justify-center md:justify-start">
               <a href="#" aria-label="LinkedIn" className="text-secondary-foreground hover:text-primary transition-colors"><Linkedin size={20} /></a>
               <a href="#" aria-label="Twitter" className="text-secondary-foreground hover:text-primary transition-colors"><Twitter size={20} /></a>
               <a href="#" aria-label="Instagram" className="text-secondary-foreground hover:text-primary transition-colors"><Instagram size={20} /></a>
@@ -50,8 +48,8 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8 text-sm text-muted-foreground">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p>&copy; {new Date().getFullYear()} TruFarms. All rights reserved.</p>
-            <ul className="flex flex-wrap space-x-4">
+            <p className="text-center md:text-left">&copy; {new Date().getFullYear()} TruFarms. All rights reserved.</p>
+            <ul className="flex flex-wrap justify-center md:justify-start space-x-4">
               <li><Link href="/licensing" className="hover:text-primary transition-colors">Licensing Statement</Link></li>
               <li><Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link></li>
               <li><Link href="/terms" className="hover:text-primary transition-colors">Terms of Use</Link></li>

@@ -34,9 +34,10 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link href="/#home" aria-label="TruFarms Home">
-            <TruFarmsLogo className="h-8 md:h-10" />
+        <div className="grid grid-cols-[1fr_auto_1fr] md:flex items-center justify-between h-20">
+          <div className="md:hidden"></div> {/* Spacer for mobile grid */}
+          <Link href="/#home" aria-label="TruFarms Home" className="justify-self-center md:justify-self-auto">
+            <TruFarmsLogo className="h-10" />
           </Link>
 
           <nav className="hidden md:flex space-x-6 items-center">
@@ -54,7 +55,7 @@ export default function Header() {
             </Button>
           </nav>
 
-          <div className="md:hidden">
+          <div className="md:hidden justify-self-end">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" aria-label="Open menu">
