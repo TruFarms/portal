@@ -12,7 +12,6 @@ const navItems = [
   { href: '/#products', label: 'Products' },
   { href: '/#services', label: 'Services' },
   { href: '/#quality', label: 'Quality Assurance' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -49,6 +48,9 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
+            <Button asChild variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground" size="sm">
+              <Link href="/contact">Contact</Link>
+            </Button>
           </nav>
 
           <div className="md:hidden">
@@ -78,6 +80,9 @@ export default function Header() {
                       {item.label}
                     </Link>
                   ))}
+                   <Button asChild variant="accent" className="w-full mt-4" onClick={() => setMobileMenuOpen(false)}>
+                    <Link href="/contact">Contact</Link>
+                  </Button>
                 </nav>
               </SheetContent>
             </Sheet>
