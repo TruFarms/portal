@@ -5,8 +5,8 @@ const TruFarmsLogo = ({ className }: { className?: string }) => (
     <Image
       src="/trufarms_trans.png"
       alt="TruFarms Logo"
-      width={225} 
-      height={60}
+      width={240} 
+      height={115}
       className={cn("w-auto", className)}
       priority
     />
