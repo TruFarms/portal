@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import TruFarmsLogo from '@/components/trufarms-logo';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, X } from 'lucide-react';
+import { Menu } from 'lucide-react';
 
 const navItems = [
   { href: '/#home', label: 'Home' },
@@ -69,9 +69,6 @@ export default function Header() {
                       <TruFarmsLogo className="h-8" />
                     </Link>
                   </SheetTitle>
-                  <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)} aria-label="Close menu">
-                    <X className="h-6 w-6" />
-                  </Button>
                 </SheetHeader>
                 <nav className="flex flex-col space-y-4">
                   {navItems.map((item) => (
