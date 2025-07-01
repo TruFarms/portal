@@ -5,9 +5,9 @@ import TruFarmsLogo from '@/components/trufarms-logo';
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary text-secondary-foreground py-12">
+    <footer className="bg-secondary text-secondary-foreground py-8 md:py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 text-center md:text-left">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 text-center md:text-left">
           <div className="flex justify-center md:justify-start">
             <Link href="/#home" aria-label="TruFarms Home" className="inline-block">
               <TruFarmsLogo className="h-12" />
