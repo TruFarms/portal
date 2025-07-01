@@ -28,9 +28,8 @@ export default function HeroSection() {
           </div>
           <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl">
             <Image
-              src="https://placehold.co/800x600.png"
+              src="/trufarmslanding.png"
               alt="Professional laboratory or cannabis product"
-              data-ai-hint="lab product"
               fill
               style={{ objectFit: 'cover' }}
               priority

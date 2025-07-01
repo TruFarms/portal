@@ -32,9 +32,8 @@ export default function AboutSection() {
           </div>
           <div className="relative aspect-square rounded-lg overflow-hidden shadow-xl">
              <Image
-              src="https://placehold.co/600x600.png"
+              src="/trufarmstest.png"
               alt="TruFarms laboratory or team"
-              data-ai-hint="laboratory team"
               fill
               style={{ objectFit: 'cover' }}
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"

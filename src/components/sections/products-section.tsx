@@ -8,22 +8,19 @@ const products = [
     name: 'Vape Cartridges',
     description: 'Premium vape cartridges formulated for purity and potency, available in various strains and cannabinoid profiles.',
     icon: Droplets,
-    imageSrc: 'https://placehold.co/400x300.png',
-    imageHint: 'vape cartridge'
+    imageSrc: '/trufarmscarts.png',
   },
   {
     name: 'Gummies & Edibles',
     description: 'Delicious and precisely dosed gummies and other edibles, crafted with high-quality extracts for consistent effects.',
     icon: Leaf,
-    imageSrc: 'https://placehold.co/400x300.png',
-    imageHint: 'cannabis gummies'
+    imageSrc: '/trufarmsgummies.png',
   },
   {
     name: 'Capsules & Tinctures',
     description: 'Discreet and convenient capsules and tinctures, offering controlled dosing and reliable cannabinoid delivery.',
     icon: Pill,
-    imageSrc: 'https://placehold.co/400x300.png',
-    imageHint: 'cannabis capsules'
+    imageSrc: '/trufarmscapsules.png',
   },
 ];
 
@@ -45,7 +42,6 @@ export default function ProductsSection() {
                   <Image
                     src={product.imageSrc}
                     alt={product.name}
-                    data-ai-hint={product.imageHint}
                     fill
                     style={{ objectFit: 'cover' }}
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
