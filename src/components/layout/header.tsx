@@ -63,7 +63,7 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
-                <SheetHeader className="flex-row justify-between items-center space-y-0 mb-8">
+                <SheetHeader className="flex-row justify-center items-center space-y-0 mb-8">
                   <SheetTitle asChild>
                     <Link href="/#home" aria-label="TruFarms Home" onClick={() => setMobileMenuOpen(false)}>
                       <TruFarmsLogo className="h-8" />
