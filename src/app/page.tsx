@@ -9,7 +9,6 @@ import QualitySection from '@/components/sections/quality-section';
 import TestimonialsSection from '@/components/sections/testimonials-section';
 import WorkflowSection from '@/components/sections/workflow-section';
 import BlogPlaceholderSection from '@/components/sections/blog-placeholder-section';
-import ContactSection from '@/components/sections/contact-section';
 
 export default function HomePage() {
   return (
@@ -24,7 +23,6 @@ export default function HomePage() {
         <TestimonialsSection />
         <WorkflowSection />
         <BlogPlaceholderSection />
-        <ContactSection />
       </main>
       <Footer />
     </div>

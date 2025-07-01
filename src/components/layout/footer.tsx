@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <Link href="#home" aria-label="TruFarms Home" className="mb-4 inline-block">
+            <Link href="/#home" aria-label="TruFarms Home" className="mb-4 inline-block">
               <TruFarmsLogo className="h-10 w-auto" />
             </Link>
             <p className="text-sm">
@@ -20,10 +20,10 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-headline font-semibold mb-3">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="#about" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="#products" className="hover:text-primary transition-colors">Products</Link></li>
-              <li><Link href="#services" className="hover:text-primary transition-colors">Services</Link></li>
-              <li><Link href="#contact" className="hover:text-primary transition-colors">Contact</Link></li>
+              <li><Link href="/#about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="/#products" className="hover:text-primary transition-colors">Products</Link></li>
+              <li><Link href="/#services" className="hover:text-primary transition-colors">Services</Link></li>
+              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
 

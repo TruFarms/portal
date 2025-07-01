@@ -66,7 +66,7 @@ export default function ServicesSection() {
             ))}
           </ul>
           <Button size="lg" asChild>
-            <Link href="#contact">
+            <Link href="/contact">
               Discuss Your Project <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>

@@ -21,7 +21,7 @@ export default function HeroSection() {
               TruFarms is your premier B2B partner for high-quality, compliant cannabis product manufacturing in Minnesota. We specialize in white-label, toll processing, and private labeling services.
             </p>
             <Button size="lg" asChild className="shadow-lg hover:shadow-xl transition-shadow">
-              <Link href="#contact">
+              <Link href="/contact">
                 B2B Inquiries <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
