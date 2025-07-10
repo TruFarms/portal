@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, 'useRef';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -20,11 +20,10 @@ interface ContactFormState {
 }
 
 async function submitContactForm(prevState: ContactFormState, formData: FormData): Promise<ContactFormState> {
-  await new Promise(resolve => setTimeout(resolve, 1000));
-  
   const name = formData.get('name') as string | null;
   const email = formData.get('email') as string | null;
   const message = formData.get('message') as string | null;
+  const company = formData.get('company') as string | null;
 
   const errors: { name?: string; email?: string; message?: string } = {};
   if (!name) errors.name = 'Name is required.';
@@ -40,13 +39,30 @@ async function submitContactForm(prevState: ContactFormState, formData: FormData
       timestamp: Date.now() 
     };
   }
-  
-  console.log({ name, email, message });
-  return { 
-    success: true, 
-    message: "Thank you for your message! We'll be in touch soon.",
-    timestamp: Date.now()
-  };
+
+  try {
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message, company }),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to send message.');
+    }
+
+    return { 
+      success: true, 
+      message: "Thank you for your message! We'll be in touch soon.",
+      timestamp: Date.now()
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: 'Something went wrong. Please try again later.',
+      timestamp: Date.now(),
+    };
+  }
 }
 
 function SubmitContactButton() {
@@ -70,18 +86,20 @@ const initialStableContactFormState: ContactFormState = {
 export default function ContactPage() {
   const [state, formAction] = React.useActionState(submitContactForm, initialStableContactFormState);
   const { toast } = useToast();
-  const prevTimestampRef = useRef(state.timestamp);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    if (state.timestamp !== prevTimestampRef.current && state.timestamp !== 0 && state.message) {
+  React.useEffect(() => {
+    if (state.timestamp && state.message) {
       toast({
         title: state.success ? 'Message Sent!' : 'Error',
         description: state.message,
         variant: state.success ? 'default' : 'destructive',
       });
+      if (state.success) {
+        formRef.current?.reset();
+      }
     }
-    prevTimestampRef.current = state.timestamp;
-  }, [state.message, state.success, state.fieldErrors, state.timestamp, toast]);
+  }, [state, toast]);
 
 
   return (
@@ -104,7 +122,7 @@ export default function ContactPage() {
                   <CardDescription>We typically respond within 24-48 hours.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form action={formAction} className="space-y-6">
+                  <form ref={formRef} action={formAction} className="space-y-6">
                     <div>
                       <Label htmlFor="name">Full Name</Label>
                       <Input id="name" name="name" type="text" placeholder="Your Name" required className={state.fieldErrors?.name ? 'border-destructive' : ''} />
@@ -150,9 +168,9 @@ export default function ContactPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-foreground">For general inquiries:</p>
-                    <a href="mailto:info@trufarms.com" className="text-primary hover:underline">info@trufarms.com</a>
+                    <a href="mailto:customerservice@trufarms.net" className="text-primary hover:underline">customerservice@trufarms.net</a>
                     <p className="text-foreground mt-2">For sales and partnerships:</p>
-                    <a href="mailto:sales@trufarms.com" className="text-primary hover:underline">sales@trufarms.com</a>
+                    <a href="mailto:alliance@trufarms.net" className="text-primary hover:underline">alliance@trufarms.net</a>
                   </CardContent>
                 </Card>
                 <Card className="shadow-xl">
@@ -161,7 +179,7 @@ export default function ContactPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-foreground">Main Office Line:</p>
-                    <a href="tel:+15075551234" className="text-primary hover:underline">(507) 555-1234</a>
+                    <a href="tel:+15075551234" className="text-primary hover:underline">(919) 423-1506</a>
                   </CardContent>
                 </Card>
               </div>
