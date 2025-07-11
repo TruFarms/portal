@@ -28,14 +28,14 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-headline font-semibold mb-3">Contact Us</h3>
             <address className="not-italic text-sm space-y-2">
-              <p>123 Lab Drive, Rochester, MN 55901</p>
+              <p>Rochester, MN</p>
               <p className="flex items-center justify-center md:justify-start">
                 <Mail className="h-4 w-4 mr-2 shrink-0" />
-                <a href="mailto:info@trufarms.com" className="hover:text-primary transition-colors">info@trufarms.com</a>
+                <a href="mailto:info@trufarms.com" className="hover:text-primary transition-colors">CustomerService@trufarms.net</a>
               </p>
               <p className="flex items-center justify-center md:justify-start">
                 <Phone className="h-4 w-4 mr-2 shrink-0" />
-                <a href="tel:+15075551234" className="hover:text-primary transition-colors">(507) 555-1234</a>
+                <a href="tel:+15075551234" className="hover:text-primary transition-colors">(919) 423-1506</a>
               </p>
             </address>
             <div className="flex space-x-4 mt-4 justify-center md:justify-start">

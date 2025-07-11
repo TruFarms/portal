@@ -26,9 +26,9 @@ export default function AccessibilityPage() {
           <h2 className="text-2xl font-semibold text-primary font-headline mt-6">Feedback</h2>
           <p>We welcome your feedback on the accessibility of TruFarms' website. Please let us know if you encounter accessibility barriers:</p>
           <ul className="list-disc list-inside ml-4 space-y-2">
-            <li>Phone: (507) 555-1234</li>
-            <li>E-mail: <a href="mailto:accessibility@trufarms.com" className="text-primary hover:underline">accessibility@trufarms.com</a></li>
-            <li>Address: 123 Lab Drive, Rochester, MN 55901</li>
+            <li>Phone: (919) 423-1506</li>
+            <li>E-mail: <a href="mailto:CustomerService@trufarms.net" className="text-primary hover:underline">CustomerService@trufarms.com</a></li>
+            <li>Location: Rochester, MN</li>
           </ul>
           <p>We try to respond to feedback within 5 business days.</p>
 
