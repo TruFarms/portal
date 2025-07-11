@@ -11,8 +11,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Satoshi', 'sans-serif'],
-        headline: ['Syne', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        headline: ['Archivo Black', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
