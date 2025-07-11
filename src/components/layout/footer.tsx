@@ -39,8 +39,8 @@ export default function Footer() {
               </p>
             </address>
             <div className="flex space-x-4 mt-4 justify-center md:justify-start">
-              <a href="#" aria-label="LinkedIn" className="text-secondary-foreground hover:text-primary transition-colors"><Linkedin size={20} /></a>
-              <a href="#" aria-label="Facebook" className="text-secondary-foreground hover:text-primary transition-colors"><Facebook size={20} /></a>
+              <a href="https://www.linkedin.com/company/trufarmsllc/" aria-label="LinkedIn" className="text-secondary-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer"><Linkedin size={20} /></a>
+              <a href="https://www.facebook.com/profile.php?id=61578424041637" aria-label="Facebook" className="text-secondary-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer"><Facebook size={20} /></a>
               <a href="https://www.instagram.com/trufarmsllc?igsh=MWV2ZGZmY2Mxcjc0bQ==" aria-label="Instagram" className="text-secondary-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer"><Instagram size={20} /></a>
             </div>
           </div>
