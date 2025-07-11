@@ -10,7 +10,7 @@ export default function HeroSection() {
     <section id="home" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/trufarmsproducts.png"
+          src="/trufarmslanding.png"
           alt="Professional laboratory or cannabis product"
           fill
           style={{ objectFit: 'cover' }}
