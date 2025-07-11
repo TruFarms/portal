@@ -71,7 +71,7 @@ async function submitContactForm(prevState: ContactFormState, formData: FormData
 function SubmitContactButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full sm:w-auto">
+    <Button type="submit" disabled={pending} className="w-full sm:w-auto" variant="accent" size="lg">
       {pending ? <Send className="mr-2 h-4 w-4 animate-pulse" /> : <Send className="mr-2 h-4 w-4" />}
       Send Message
     </Button>
@@ -101,7 +101,6 @@ export default function ContactPage() {
       });
       if (state.success) {
         formRef.current?.reset();
-        // Manually reset the visual of the Select component
         if (selectTriggerRef.current) {
            const trigger = selectTriggerRef.current;
            const valueNode = trigger.childNodes[0];
@@ -121,39 +120,43 @@ export default function ContactPage() {
         <section id="contact" className="py-16 lg:py-24 bg-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-headline">Get in Touch</h2>
+              <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4 font-headline">Get in Touch</h2>
               <p className="text-lg text-foreground max-w-2xl mx-auto">
                 Have questions or ready to discuss your B2B manufacturing needs? Contact us today.
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12">
-              <Card className="shadow-xl">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-headline">Send Us a Message</CardTitle>
+            <Card className="overflow-hidden shadow-2xl lg:grid lg:grid-cols-3">
+              <div className="p-8 lg:p-12 lg:col-span-2">
+                <CardHeader className="p-0 mb-6">
+                  <CardTitle className="text-3xl font-headline text-primary">Send Us a Message</CardTitle>
                   <CardDescription>We typically respond within 24-48 hours.</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="p-0">
                   <form ref={formRef} action={formAction} className="space-y-6">
-                    <div>
-                      <Label htmlFor="name">Full Name</Label>
-                      <Input id="name" name="name" type="text" placeholder="Your Name" required className={state.fieldErrors?.name ? 'border-destructive' : ''} />
-                      {state.fieldErrors?.name && <p className="text-sm text-destructive mt-1">{state.fieldErrors.name}</p>}
+                    <div className="grid sm:grid-cols-2 gap-6">
+                      <div>
+                        <Label htmlFor="name">Full Name</Label>
+                        <Input id="name" name="name" type="text" placeholder="Your Name" required className={state.fieldErrors?.name ? 'border-destructive' : ''} />
+                        {state.fieldErrors?.name && <p className="text-sm text-destructive mt-1">{state.fieldErrors.name}</p>}
+                      </div>
+                      <div>
+                        <Label htmlFor="email">Email Address</Label>
+                        <Input id="email" name="email" type="email" placeholder="your@email.com" required className={state.fieldErrors?.email ? 'border-destructive' : ''} />
+                        {state.fieldErrors?.email && <p className="text-sm text-destructive mt-1">{state.fieldErrors.email}</p>}
+                      </div>
+                    </div>
+                     <div className="grid sm:grid-cols-2 gap-6">
+                       <div>
+                        <Label htmlFor="phone">Phone Number (Optional)</Label>
+                        <Input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
+                      </div>
+                      <div>
+                        <Label htmlFor="company">Company (Optional)</Label>
+                        <Input id="company" name="company" type="text" placeholder="Your Company Name" />
+                      </div>
                     </div>
                     <div>
-                      <Label htmlFor="email">Email Address</Label>
-                      <Input id="email" name="email" type="email" placeholder="your@email.com" required className={state.fieldErrors?.email ? 'border-destructive' : ''} />
-                      {state.fieldErrors?.email && <p className="text-sm text-destructive mt-1">{state.fieldErrors.email}</p>}
-                    </div>
-                     <div>
-                      <Label htmlFor="phone">Phone Number (Optional)</Label>
-                      <Input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
-                    </div>
-                    <div>
-                      <Label htmlFor="company">Company (Optional)</Label>
-                      <Input id="company" name="company" type="text" placeholder="Your Company Name" />
-                    </div>
-                     <div>
                       <Label htmlFor="referral">How did you hear about us? (Optional)</Label>
                         <Select name="referral">
                          <SelectTrigger ref={selectTriggerRef} id="referral">
@@ -178,43 +181,45 @@ export default function ContactPage() {
                     </div>
                   </form>
                 </CardContent>
-              </Card>
-
-              <div className="space-y-8">
-                <Card className="shadow-xl">
-                  <CardHeader>
-                    <CardTitle className="text-xl font-headline flex items-center"><MapPin className="h-6 w-6 mr-3 text-primary"/> Our Location</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-foreground">TruFarms Headquarters</p>
-                    <p className="text-muted-foreground">Rochester, MN<br />United States</p>
-                    <Button variant="outline" className="mt-4" asChild>
-                      <a href="https://maps.google.com/?q=Rochester,MN" target="_blank" rel="noopener noreferrer">Get Directions</a>
-                    </Button>
-                  </CardContent>
-                </Card>
-                <Card className="shadow-xl">
-                  <CardHeader>
-                    <CardTitle className="text-xl font-headline flex items-center"><Mail className="h-6 w-6 mr-3 text-primary"/> Email Us</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-foreground">For general inquiries:</p>
-                    <a href="mailto:customerservice@trufarms.net" className="text-primary hover:underline">customerservice@trufarms.net</a>
-                    <p className="text-foreground mt-2">For sales and partnerships:</p>
-                    <a href="mailto:alliance@trufarms.net" className="text-primary hover:underline">alliance@trufarms.net</a>
-                  </CardContent>
-                </Card>
-                <Card className="shadow-xl">
-                   <CardHeader>
-                    <CardTitle className="text-xl font-headline flex items-center"><Phone className="h-6 w-6 mr-3 text-primary"/> Call Us</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-foreground">Main Office Line:</p>
-                    <a href="tel:+15075551234" className="text-primary hover:underline">(919) 423-1506</a>
-                  </CardContent>
-                </Card>
               </div>
-            </div>
+
+              <div className="bg-secondary p-8 lg:p-12">
+                  <h3 className="text-2xl font-bold font-headline text-primary mb-8">Contact Information</h3>
+                  <div className="space-y-8">
+                      <div className="flex items-start">
+                          <MapPin className="h-8 w-8 text-primary mr-4 shrink-0 mt-1" />
+                          <div>
+                              <h4 className="text-lg font-semibold text-foreground">Our Location</h4>
+                              <p className="text-muted-foreground">
+                                  TruFarms Headquarters<br />
+                                  Rochester, MN, United States
+                              </p>
+                              <Button variant="link" className="p-0 h-auto mt-2" asChild>
+                                <a href="https://maps.google.com/?q=Rochester,MN" target="_blank" rel="noopener noreferrer">Get Directions</a>
+                              </Button>
+                          </div>
+                      </div>
+                      <div className="flex items-start">
+                          <Mail className="h-8 w-8 text-primary mr-4 shrink-0 mt-1" />
+                          <div>
+                              <h4 className="text-lg font-semibold text-foreground">Email Us</h4>
+                              <p className="text-muted-foreground">General Inquiries:</p>
+                              <a href="mailto:customerservice@trufarms.net" className="text-primary hover:underline break-all">customerservice@trufarms.net</a>
+                              <p className="text-muted-foreground mt-2">Partnerships:</p>
+                              <a href="mailto:alliance@trufarms.net" className="text-primary hover:underline break-all">alliance@trufarms.net</a>
+                          </div>
+                      </div>
+                      <div className="flex items-start">
+                          <Phone className="h-8 w-8 text-primary mr-4 shrink-0 mt-1" />
+                          <div>
+                              <h4 className="text-lg font-semibold text-foreground">Call Us</h4>
+                              <p className="text-muted-foreground">Main Office Line:</p>
+                              <a href="tel:+19194231506" className="text-primary hover:underline">(919) 423-1506</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </Card>
           </div>
         </section>
       </main>
