@@ -50,7 +50,7 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <Button asChild variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground" size="sm">
+            <Button asChild variant="accent" size="sm">
               <Link href="/contact">Contact</Link>
             </Button>
           </nav>
