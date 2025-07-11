@@ -11,6 +11,7 @@ import { useFormStatus } from 'react-dom';
 import { useToast } from '@/hooks/use-toast';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface ContactFormState {
   success: boolean | null;
@@ -24,6 +25,8 @@ async function submitContactForm(prevState: ContactFormState, formData: FormData
   const email = formData.get('email') as string | null;
   const message = formData.get('message') as string | null;
   const company = formData.get('company') as string | null;
+  const phone = formData.get('phone') as string | null;
+  const referral = formData.get('referral') as string | null;
 
   const errors: { name?: string; email?: string; message?: string } = {};
   if (!name) errors.name = 'Name is required.';
@@ -44,7 +47,7 @@ async function submitContactForm(prevState: ContactFormState, formData: FormData
     const response = await fetch('/api/send-email', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, message, company }),
+      body: JSON.stringify({ name, email, message, company, phone, referral }),
     });
 
     if (!response.ok) {
@@ -87,6 +90,7 @@ export default function ContactPage() {
   const [state, formAction] = React.useActionState(submitContactForm, initialStableContactFormState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
+  const selectTriggerRef = useRef<HTMLButtonElement>(null);
 
   React.useEffect(() => {
     if (state.timestamp && state.message) {
@@ -97,6 +101,14 @@ export default function ContactPage() {
       });
       if (state.success) {
         formRef.current?.reset();
+        // Manually reset the visual of the Select component
+        if (selectTriggerRef.current) {
+           const trigger = selectTriggerRef.current;
+           const valueNode = trigger.childNodes[0];
+           if (valueNode && valueNode.childNodes[0]) {
+               (valueNode.childNodes[0] as HTMLElement).innerText = 'Select an option';
+           }
+        }
       }
     }
   }, [state, toast]);
@@ -133,9 +145,28 @@ export default function ContactPage() {
                       <Input id="email" name="email" type="email" placeholder="your@email.com" required className={state.fieldErrors?.email ? 'border-destructive' : ''} />
                       {state.fieldErrors?.email && <p className="text-sm text-destructive mt-1">{state.fieldErrors.email}</p>}
                     </div>
+                     <div>
+                      <Label htmlFor="phone">Phone Number (Optional)</Label>
+                      <Input id="phone" name="phone" type="tel" placeholder="(555) 555-5555" />
+                    </div>
                     <div>
                       <Label htmlFor="company">Company (Optional)</Label>
                       <Input id="company" name="company" type="text" placeholder="Your Company Name" />
+                    </div>
+                     <div>
+                      <Label htmlFor="referral">How did you hear about us? (Optional)</Label>
+                        <Select name="referral">
+                         <SelectTrigger ref={selectTriggerRef} id="referral">
+                            <SelectValue placeholder="Select an option" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="Search Engine (Google, etc.)">Search Engine (Google, etc.)</SelectItem>
+                            <SelectItem value="Social Media">Social Media</SelectItem>
+                            <SelectItem value="Referral">Referral</SelectItem>
+                            <SelectItem value="Advertisement">Advertisement</SelectItem>
+                            <SelectItem value="Other">Other</SelectItem>
+                          </SelectContent>
+                        </Select>
                     </div>
                     <div>
                       <Label htmlFor="message">Message</Label>
@@ -156,7 +187,7 @@ export default function ContactPage() {
                   </CardHeader>
                   <CardContent>
                     <p className="text-foreground">TruFarms Headquarters</p>
-                    <p className="text-muted-foreground">123 Lab Drive<br />Rochester, MN 55901<br />United States</p>
+                    <p className="text-muted-foreground">Rochester, MN<br />United States</p>
                     <Button variant="outline" className="mt-4" asChild>
                       <a href="https://maps.google.com/?q=Rochester,MN" target="_blank" rel="noopener noreferrer">Get Directions</a>
                     </Button>
