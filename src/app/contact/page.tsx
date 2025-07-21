@@ -122,7 +122,7 @@ export default function ContactPage() {
             <div className="text-center mb-12">
               <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-4 font-headline">Get in Touch</h2>
               <p className="text-lg text-foreground max-w-2xl mx-auto">
-                Have questions or ready to discuss your B2B manufacturing needs? Contact us today.
+                Have questions or ready to discuss your cannabis manufacturing needs? Contact us today.
               </p>
             </div>
 

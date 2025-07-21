@@ -30,10 +30,10 @@ export default function AboutPage() {
                   About TruFarms
                 </h1>
                 <p className="text-lg text-foreground mb-4">
-                  TruFarms is a licensed microbusiness based in Rochester, Minnesota, dedicated to providing exceptional B2B cannabis manufacturing services. Our state-of-the-art, lab-focused operations ensure the highest standards of quality, safety, and compliance.
+                  TruFarms is a licensed microbusiness based in Rochester, Minnesota, dedicated to providing exceptional cannabis manufacturing services. Our state-of-the-art operations ensure the highest standards of quality, safety, and compliance.
                 </p>
                 <p className="text-lg text-foreground mb-8">
-                  We partner with dispensaries, cultivators, and other cannabis businesses to bring innovative and reliable products to the Minnesota market. Our commitment to transparency and scientific rigor underpins everything we do.
+                  We partner with dispensaries, cultivators, and other cannabis businesses to bring innovative and reliable products to the cannabis market.
                 </p>
               </div>
               <ul className="space-y-4 max-w-md mx-auto text-left mb-10">

@@ -22,12 +22,6 @@ const services = [
   },
 ];
 
-const industriesServed = [
-  "Microbusinesses seeking to scale production.",
-  "Licensed cultivators needing extraction and productization.",
-  "Dispensary brands without in-house lab capabilities."
-];
-
 export default function ServicesSection() {
   return (
     <section id="services" className="py-16 lg:py-24 bg-background overflow-hidden">
@@ -39,7 +33,7 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
              <div key={service.title} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 150 + 200}ms` }}>
                 <Link href="/contact" className="block h-full">
@@ -57,23 +51,6 @@ export default function ServicesSection() {
                 </Link>
             </div>
           ))}
-        </div>
-
-        <div className="text-center bg-secondary p-8 md:p-12 rounded-lg shadow-md opacity-0 animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-          <h3 className="text-2xl lg:text-3xl font-bold text-primary mb-6 font-headline">Industries We Serve</h3>
-          <ul className="space-y-3 max-w-xl mx-auto text-left mb-8 text-foreground">
-            {industriesServed.map((industry, index) => (
-              <li key={index} className="flex items-start">
-                <ArrowRight className="h-5 w-5 text-primary mr-3 mt-1 shrink-0" />
-                {industry}
-              </li>
-            ))}
-          </ul>
-          <Button size="lg" asChild variant="accent" className="transform hover:scale-105 transition-transform duration-300">
-            <Link href="/contact">
-              Discuss Your Project <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
         </div>
       </div>
     </section>

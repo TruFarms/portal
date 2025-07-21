@@ -26,12 +26,12 @@ export default function HeroSection() {
             Elevating Cannabis Manufacturing Standards
           </h1>
           <p className="text-lg sm:text-xl text-foreground mb-8 max-w-2xl mx-auto opacity-0 animate-fade-in-down" style={{ animationDelay: '0.2s' }}>
-            TruFarms is your premier B2B partner for high-quality, compliant cannabis product manufacturing in Minnesota. We specialize in white-label, toll processing, and private labeling services.
+            TruFarms is your premier partner for high-quality, compliant cannabis product manufacturing in Minnesota. We specialize in white-label, toll processing, and private labeling services.
           </p>
           <div className="opacity-0 animate-fade-in-down" style={{ animationDelay: '0.3s' }}>
             <Button size="lg" asChild variant="accent" className="shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105">
               <Link href="/contact">
-                B2B Inquiries <ArrowRight className="ml-2 h-5 w-5" />
+                Manufacturing Inquiries <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
           </div>

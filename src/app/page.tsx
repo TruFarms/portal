@@ -6,6 +6,7 @@ import ProductsSection from '@/components/sections/products-section';
 import ServicesSection from '@/components/sections/services-section';
 import QualitySection from '@/components/sections/quality-section';
 import WorkflowSection from '@/components/sections/workflow-section';
+import IndustriesSection from '@/components/sections/industries-section';
 
 export default function HomePage() {
   return (
@@ -13,8 +14,9 @@ export default function HomePage() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-        <WorkflowSection />
         <ProductsSection />
+        <WorkflowSection />
+        <IndustriesSection />
         <ServicesSection />
         <QualitySection />
       </main>
