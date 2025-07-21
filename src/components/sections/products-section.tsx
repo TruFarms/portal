@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Droplets, Pill, Leaf } from 'lucide-react'; // Using Leaf as a stand-in for gummies/edibles
+import Link from 'next/link';
 
 const products = [
   {
@@ -37,27 +38,29 @@ export default function ProductsSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
             <div key={product.name} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 150 + 200}ms` }}>
-              <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
-                <CardHeader className="p-0">
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={product.imageSrc}
-                      alt={product.name}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                </CardHeader>
-                <CardContent className="p-6 flex-grow flex flex-col">
-                  <div className="flex items-center mb-3">
-                    <product.icon className="h-8 w-8 text-primary mr-3 shrink-0" />
-                    <CardTitle className="text-2xl font-headline">{product.name}</CardTitle>
-                  </div>
-                  <CardDescription className="text-foreground flex-grow">{product.description}</CardDescription>
-                </CardContent>
-              </Card>
+              <Link href="/contact" className="block h-full group">
+                <Card className="flex flex-col h-full overflow-hidden shadow-lg hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                  <CardHeader className="p-0">
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={product.imageSrc}
+                        alt={product.name}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-6 flex-grow flex flex-col">
+                    <div className="flex items-center mb-3">
+                      <product.icon className="h-8 w-8 text-primary mr-3 shrink-0" />
+                      <CardTitle className="text-2xl font-headline">{product.name}</CardTitle>
+                    </div>
+                    <CardDescription className="text-foreground flex-grow">{product.description}</CardDescription>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ShieldCheck, FlaskConical, Wind } from 'lucide-react'; // Wind for cleanroom/air quality
+import Link from 'next/link';
 
 const qualityAspects = [
   {
@@ -33,17 +34,19 @@ export default function QualitySection() {
         <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
           {qualityAspects.map((aspect, index) => (
             <div key={aspect.title} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 150 + 200}ms` }}>
-              <Card className="h-full shadow-lg hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
-                <CardHeader className="items-center text-center">
-                  <div className="p-4 bg-primary/10 text-primary rounded-full w-fit mb-3 transition-transform hover:scale-110">
-                    <aspect.icon className="h-10 w-10" />
-                  </div>
-                  <CardTitle className="text-2xl font-headline">{aspect.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-foreground">{aspect.description}</p>
-                </CardContent>
-              </Card>
+              <Link href="/contact" className="block h-full">
+                <Card className="h-full shadow-lg hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                  <CardHeader className="items-center text-center">
+                    <div className="p-4 bg-primary/10 text-primary rounded-full w-fit mb-3 transition-transform hover:scale-110">
+                      <aspect.icon className="h-10 w-10" />
+                    </div>
+                    <CardTitle className="text-2xl font-headline">{aspect.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <p className="text-foreground">{aspect.description}</p>
+                  </CardContent>
+                </Card>
+              </Link>
             </div>
           ))}
         </div>

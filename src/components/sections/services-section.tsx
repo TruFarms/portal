@@ -42,17 +42,19 @@ export default function ServicesSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
              <div key={service.title} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 150 + 200}ms` }}>
-              <Card className="text-center h-full shadow-lg hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
-                <CardHeader>
-                  <div className="mx-auto bg-primary/10 text-primary rounded-full p-4 w-fit mb-4">
-                    <service.icon className="h-10 w-10" />
-                  </div>
-                  <CardTitle className="text-2xl font-headline">{service.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-foreground">{service.description}</p>
-                </CardContent>
-              </Card>
+                <Link href="/contact" className="block h-full">
+                  <Card className="text-center h-full shadow-lg hover:shadow-xl hover:-translate-y-2 transition-transform duration-300">
+                    <CardHeader>
+                      <div className="mx-auto bg-primary/10 text-primary rounded-full p-4 w-fit mb-4">
+                        <service.icon className="h-10 w-10" />
+                      </div>
+                      <CardTitle className="text-2xl font-headline">{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-foreground">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                </Link>
             </div>
           ))}
         </div>
