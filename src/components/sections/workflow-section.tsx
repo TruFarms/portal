@@ -1,6 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { MessageCircle, Beaker, ClipboardCheck, Truck, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const workflowSteps = [
   {
@@ -8,6 +9,7 @@ const workflowSteps = [
     title: 'Client Inquiry',
     description: 'Reach out to us with your project requirements and brand vision. We schedule an initial consultation to understand your needs.',
     icon: MessageCircle,
+    href: '/contact',
   },
   {
     step: 2,
@@ -40,9 +42,9 @@ export default function WorkflowSection() {
           </p>
         </div>
         <div className="relative grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {workflowSteps.map((step, index) => (
-            <div key={step.step} className="relative flex flex-col opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 150 + 200}ms` }}>
-              <Card className="flex-grow flex flex-col text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 z-10">
+          {workflowSteps.map((step, index) => {
+            const cardContent = (
+              <Card className="flex-grow flex flex-col text-center shadow-lg hover:shadow-xl hover:-translate-y-2 transition-transform duration-300 z-10 h-full">
                 <CardHeader>
                   <div className="mx-auto bg-primary/10 text-primary rounded-full p-3 w-fit mb-3">
                     <step.icon className="h-8 w-8" />
@@ -55,11 +57,17 @@ export default function WorkflowSection() {
                   <p className="text-foreground">{step.description}</p>
                 </CardContent>
               </Card>
-              {index < workflowSteps.length - 1 && (
-                <ArrowRight className="absolute top-1/2 -right-4 transform -translate-y-1/2 h-8 w-8 text-primary/50 hidden lg:block z-0" />
-              )}
-            </div>
-          ))}
+            );
+
+            return (
+              <div key={step.step} className="relative flex flex-col opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 150 + 200}ms` }}>
+                {step.href ? <Link href={step.href} className="flex flex-col h-full">{cardContent}</Link> : cardContent}
+                {index < workflowSteps.length - 1 && (
+                  <ArrowRight className="absolute top-1/2 -right-4 transform -translate-y-1/2 h-8 w-8 text-primary/50 hidden lg:block z-0" />
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>
