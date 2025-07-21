@@ -9,7 +9,7 @@ export default function AboutPage() {
     <div className="flex flex-col min-h-screen bg-background text-foreground">
       <Header />
       <main className="flex-grow">
-        <section id="about" className="relative min-h-[calc(100vh-10rem)] flex items-center justify-center text-center overflow-hidden pt-20">
+        <section id="about" className="relative min-h-screen flex items-center justify-center text-center overflow-hidden pt-20">
           <div className="absolute inset-0 z-0">
             <Image
               src="/trufarmstest.png"
