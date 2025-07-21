@@ -15,7 +15,7 @@ export default function HeroSection() {
           fill
           style={{ objectFit: 'cover' }}
           priority
-          className="opacity-30"
+          className="opacity-50"
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
