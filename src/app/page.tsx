@@ -2,7 +2,6 @@
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import HeroSection from '@/components/sections/hero-section';
-import AboutSection from '@/components/sections/about-section';
 import ProductsSection from '@/components/sections/products-section';
 import ServicesSection from '@/components/sections/services-section';
 import QualitySection from '@/components/sections/quality-section';
@@ -18,7 +17,6 @@ export default function HomePage() {
         <ProductsSection />
         <ServicesSection />
         <QualitySection />
-        <AboutSection />
       </main>
       <Footer />
     </div>

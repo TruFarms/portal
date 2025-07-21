@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 text-center md:text-left">
           <div className="flex justify-center md:justify-start">
-            <Link href="/#home" aria-label="TruFarms Home" className="inline-block">
+            <Link href="/" aria-label="TruFarms Home" className="inline-block">
               <TruFarmsLogo className="h-12" />
             </Link>
           
@@ -18,7 +18,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-headline font-semibold mb-3">Quick Links</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/#about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/#products" className="hover:text-primary transition-colors">Products</Link></li>
               <li><Link href="/#services" className="hover:text-primary transition-colors">Services</Link></li>
               <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>

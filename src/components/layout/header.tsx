@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -8,11 +9,11 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/co
 import { Menu } from 'lucide-react';
 
 const navItems = [
-  { href: '/#home', label: 'Home' },
+  { href: '/', label: 'Home' },
   { href: '/#products', label: 'Products' },
   { href: '/#services', label: 'Services' },
   { href: '/#quality', label: 'Quality Assurance' },
-  { href: '/#about', label: 'About' },
+  { href: '/about', label: 'About' },
 ];
 
 export default function Header() {
@@ -36,7 +37,7 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-[1fr_auto_1fr] md:flex items-center justify-between h-24 md:h-20">
           <div className="md:hidden"></div> {/* Spacer for mobile grid */}
-          <Link href="/#home" aria-label="TruFarms Home" className="justify-self-center md:justify-self-auto">
+          <Link href="/" aria-label="TruFarms Home" className="justify-self-center md:justify-self-auto">
             <TruFarmsLogo className="h-10" />
           </Link>
 
@@ -65,7 +66,7 @@ export default function Header() {
               <SheetContent side="right" className="w-full max-w-xs bg-background p-6">
                 <SheetHeader className="flex-row justify-center items-center space-y-0 mb-8">
                   <SheetTitle asChild>
-                    <Link href="/#home" aria-label="TruFarms Home" onClick={() => setMobileMenuOpen(false)}>
+                    <Link href="/" aria-label="TruFarms Home" onClick={() => setMobileMenuOpen(false)}>
                       <TruFarmsLogo className="h-8" />
                     </Link>
                   </SheetTitle>
