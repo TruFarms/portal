@@ -1,8 +1,10 @@
 
 import Image from 'next/image';
-import { CheckCircle } from 'lucide-react';
+import Link from 'next/link';
+import { CheckCircle, ArrowRight } from 'lucide-react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
+import { Button } from '@/components/ui/button';
 
 export default function AboutPage() {
   return (
@@ -34,20 +36,27 @@ export default function AboutPage() {
                   We partner with dispensaries, cultivators, and other cannabis businesses to bring innovative and reliable products to the Minnesota market. Our commitment to transparency and scientific rigor underpins everything we do.
                 </p>
               </div>
-              <ul className="space-y-4 max-w-md mx-auto text-left">
+              <ul className="space-y-4 max-w-md mx-auto text-left mb-10">
                 <li className="flex items-center text-foreground text-lg opacity-0 animate-fade-in-down" style={{ animationDelay: '300ms' }}>
                   <CheckCircle className="h-6 w-6 text-primary mr-3 shrink-0" />
                   Licensed Microbusiness in Rochester, MN
                 </li>
-                <li className="flex items-center text-foreground text-lg opacity-0 animate-fade-in-down" style={{ animationDelay: '400ms' }}>
+                <li className="flex items-center text-foreground text-lg opacity-0 animate-fade-in-down" style={{ animationDelay: '450ms' }}>
                   <CheckCircle className="h-6 w-6 text-primary mr-3 shrink-0" />
                   Specialized Lab-Focused Operations
                 </li>
-                <li className="flex items-center text-foreground text-lg opacity-0 animate-fade-in-down" style={{ animationDelay: '500ms' }}>
+                <li className="flex items-center text-foreground text-lg opacity-0 animate-fade-in-down" style={{ animationDelay: '600ms' }}>
                   <CheckCircle className="h-6 w-6 text-primary mr-3 shrink-0" />
                   Commitment to Quality, Safety, and Compliance
                 </li>
               </ul>
+               <div className="opacity-0 animate-fade-in-down" style={{ animationDelay: '750ms' }}>
+                <Button size="lg" asChild variant="accent" className="shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105">
+                  <Link href="/contact">
+                    Partner With Us <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </section>
