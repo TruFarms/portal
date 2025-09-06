@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -35,10 +34,10 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-[1fr_auto_1fr] md:flex items-center justify-between h-20 md:h-16">
+        <div className="grid grid-cols-[1fr_auto_1fr] md:flex items-center justify-between h-24 md:h-20">
           <div className="md:hidden"></div> {/* Spacer for mobile grid */}
           <Link href="/" aria-label="TruFarms Home" className="justify-self-center md:justify-self-auto">
-            <TruFarmsLogo className="h-10" />
+            <TruFarmsLogo className="h-12" />
           </Link>
 
           <nav className="hidden md:flex space-x-6 items-center">
