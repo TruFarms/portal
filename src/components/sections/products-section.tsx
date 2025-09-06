@@ -1,7 +1,7 @@
 
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Droplets, Pill, Leaf } from 'lucide-react'; // Using Leaf as a stand-in for gummies/edibles
+import { Droplets, Pill, Leaf, Flame, Cigarette } from 'lucide-react'; 
 import Link from 'next/link';
 
 const products = [
@@ -22,6 +22,20 @@ const products = [
     description: 'Discreet and convenient capsules and tinctures, offering controlled dosing and reliable cannabinoid delivery.',
     icon: Pill,
     imageSrc: '/trufarmscapsules.png',
+  },
+  {
+    name: 'Concentrates',
+    description: 'High-purity concentrates including shatter, wax, and live resin, extracted for maximum flavor and potency.',
+    icon: Flame,
+    imageSrc: 'https://picsum.photos/400/300?random=4',
+    dataAiHint: 'cannabis concentrate',
+  },
+  {
+    name: 'Pre-Rolls & Infused Pre-Rolls',
+    description: 'Expertly crafted pre-rolls using premium flower, with options for infusion to enhance the experience.',
+    icon: Cigarette,
+    imageSrc: 'https://picsum.photos/400/300?random=5',
+    dataAiHint: 'cannabis pre-roll',
   },
 ];
 
@@ -49,6 +63,7 @@ export default function ProductsSection() {
                         style={{ objectFit: 'cover' }}
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="transition-transform duration-500 group-hover:scale-105"
+                        {...(product.dataAiHint && { 'data-ai-hint': product.dataAiHint })}
                       />
                     </div>
                   </CardHeader>
