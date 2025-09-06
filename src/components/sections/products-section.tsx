@@ -33,8 +33,7 @@ const products = [
     name: 'Pre-Rolls & Infused Pre-Rolls',
     description: 'Expertly crafted pre-rolls using premium flower, with options for infusion to enhance the experience.',
     icon: Cigarette,
-    imageSrc: 'https://picsum.photos/400/300?random=5',
-    dataAiHint: 'cannabis pre-roll',
+    imageSrc: '/trufarmsprerolls.png',
   },
 ];
 
