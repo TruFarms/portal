@@ -27,8 +27,7 @@ const products = [
     name: 'Concentrates',
     description: 'High-purity concentrates including shatter, wax, and live resin, extracted for maximum flavor and potency.',
     icon: Flame,
-    imageSrc: 'https://picsum.photos/400/300?random=4',
-    dataAiHint: 'cannabis concentrate',
+    imageSrc: '/trufarmscons.png',
   },
   {
     name: 'Pre-Rolls & Infused Pre-Rolls',
