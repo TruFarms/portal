@@ -1,6 +1,6 @@
 # TruFarms Portal
 
-This project is a B2B web portal for TruFarms, a fictional cannabis manufacturing company. The application is designed to showcase the company's services, products, and commitment to quality, while also providing a clear point of contact for potential business partners.
+This project is a B2B web portal for TruFarms, a cannabis manufacturing company based in Rochester, MN. The application is designed to showcase the company's services, products, and commitment to quality, while also providing a clear point of contact for potential business partners.
 
 ## Tech Stack
 
